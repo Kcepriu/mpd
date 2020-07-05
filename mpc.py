@@ -112,7 +112,7 @@ def Volume(status=True):
     else:
         output = subprocess.check_output(mpc+[ "volume", '-100'])
 
-
+#+
 def LogPlayLists():
     NameCurentPlayList = GetNameCurentPlayList()
     now_hour = datetime.today().strftime('%H_%M')
@@ -133,7 +133,7 @@ def LogPlayListsName():
     output = subprocess.check_output(mpc)
     PlayListsSTR = output.decode("utf-8")
 
-    name_song="111"
+    name_song=""
     nom_song=""
     if PlayListsSTR != "":
          name_song= PlayListsSTR.split('\n')[0].replace('\r', '')

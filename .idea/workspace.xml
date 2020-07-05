@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b0b0762-33be-4513-b398-877b710e51e3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Itea/.idea/Itea.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Itea/.idea/Itea.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mpc.py" beforeDir="false" afterPath="$PROJECT_DIR$/mpc.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -133,7 +133,7 @@ def LogPlayListsName():
     output = subprocess.check_output(mpc)
     PlayListsSTR = output.decode("utf-8")
 
-    name_song=""
+    name_song="111"
     nom_song=""
     if PlayListsSTR != "":
          name_song= PlayListsSTR.split('\n')[0].replace('\r', '')

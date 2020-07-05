@@ -5,6 +5,7 @@ import re
 
 import tempfile
 
+#+
 def GetPlayListFromFile():
     nowdata = datetime.today()
     now_hour = int(nowdata.strftime('%H'))
@@ -33,14 +34,15 @@ def GetPlayListFromFile():
     #print(hour, minute, '=', AllMinut, value)
     
     return result
-
+#+
 def GetPlayListFromMPC():
     output=subprocess.check_output(mpc+["playlist"])
     return output.decode("utf-8")
 
+#+
 def UpdateBase():
     output = subprocess.check_output(mpc+[ "update"])
-
+#+
 def ClearPlayList():
     #Очистимо список збережених
     output = subprocess.check_output(mpc+[ "lsplaylists"])
@@ -55,25 +57,28 @@ def ClearPlayList():
     #Видалимо файли з поточного
     output = subprocess.check_output(mpc+[ "clear"])
 
+#+
 def ShufflePlayList():
     output = subprocess.check_output(mpc+[ "shuffle"])
 
+#+
 def PlayPlayList():
     output = subprocess.check_output(mpc+[ "play"])
     output = subprocess.check_output(mpc+[ "random", "off"])
     output = subprocess.check_output(mpc+[ "repeat", "on"])
     Volume()
 
-
+#+
 def AddPlayList(NamePlayList):
     output = subprocess.check_output(mpc+[ "add",  NamePlayList])
     output = subprocess.check_output(mpc+[ "save", NamePlayList])
 
+#+
 def ls_mpc():
     output = subprocess.check_output(mpc+["ls"])
     return output.decode("utf-8")
 
-
+#+
 def StatusMpc():
     output = subprocess.check_output(mpc+[  "status"])
     outs=output.decode("utf-8").split('\n')
@@ -83,6 +88,7 @@ def StatusMpc():
     status = re.findall(r'\[(.*)\]', outs[1])[0]
     return status
 
+#+
 def UpdatePlayList(NamePlayList, PlayListMPC):
     output = subprocess.check_output(mpc+[ "listall", NamePlayList])
     AllFilesSTR=output.decode("utf-8")#.split('\n')
@@ -91,7 +97,7 @@ def UpdatePlayList(NamePlayList, PlayListMPC):
 
     return (len(AllFilesSTR.split('\n'))!=len(PlayListMPC.split('\n')))
    
-
+#+
 def GetNameCurentPlayList():
     output = subprocess.check_output(mpc+[ "lsplaylists"])
     PlayListsSTR = output.decode("utf-8")
@@ -99,6 +105,7 @@ def GetNameCurentPlayList():
          return PlayListsSTR.split('\n')[0].replace('\r', '')
     return ''
 
+#+
 def Volume(status=True):
     if status == True:
         output = subprocess.check_output(mpc+[ "volume", '+100'])
@@ -190,4 +197,4 @@ def main():
 
 if __name__=="__main__" :
     main()
-    pass
+
